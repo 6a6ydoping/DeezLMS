@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   db:
-    container_name: db
+    container_name: db_lms
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -12,9 +12,9 @@ services:
       - "5432:5432"
 
   backend:
-    container_name: backend
+    container_name: backend_lms
     build:
-      context: ./shop
+      context: ./lms
     environment:
       DATABASE_URL: ${DATABASE_URL}
     depends_on:
